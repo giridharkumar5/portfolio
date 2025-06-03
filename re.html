@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giridhar Kumar - Portfolio</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --primary: #2563eb;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #94a3b8;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        section {
+            padding: 80px 0;
+        }
+        h1, h2, h3, h4 {
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        a {
+            text-decoration: none;
+            color: var(--primary);
+        }
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        .nav-links a {
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding-top: 80px;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        .hero h1 span {
+            color: var(--primary);
+        }
+        .hero h2 {
+            font-size: 1.8rem;
+            color: var(--gray);
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+        
+        /* About Section */
+        .about {
+            text-align: center;
+        }
+        .about p {
+            max-width: 800px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .skills span {
+            background-color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            font-weight: 500;
+        }
+        
+        /* Certifications & Projects */
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary);
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        .card img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            margin-bottom: 20px;
+        }
+        .card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+        .card a {
+            color: var(--primary);
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 15px;
+        }
+        
+        /* Contact Section */
+        .contact p {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+        .social {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .social a {
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+        }
+        .social a:first-child {
+            background-color: var(--primary);
+            color: white;
+        }
+        .social a:last-child {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            background-color: var(--dark);
+            color: white;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero h2 {
+                font-size: 1.3rem;
+            }
+            .nav-links {
+                gap: 15px;
+            }
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Print Styles */
+        @media print {
+            body {
+                zoom: 0.9;
+                font-size: 14px;
+            }
+            .card {
+                break-inside: avoid;
+            }
+            .card:hover {
+                transform: none;
+                box-shadow: none;
+            }
+            .btn:hover, .nav-links a:hover {
+                transform: none;
+                box-shadow: none;
+            }
+            header {
+                position: static;
+            }
+            .hero {
+                min-height: auto;
+                padding: 40px 0;
+            }
+            section {
+                padding: 40px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">GK</div>
+                <div class="nav-links">
+                    <a href="#about">About</a>
+                    <a href="#certifications">Certifications</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Hi, I'm <span>Giridhar Kumar</span></h1>
+            <h2>B.Tech CSM Student | Full-Stack & Android Developer</h2>
+            <p>JNCIA-Junos Certified | Google Android Intern | AI Enthusiast</p>
+            <a href="#projects" class="btn">View My Work</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h3 class="section-title">About Me</h3>
+            <p>
+                A passionate developer with expertise in <strong>React, Node.js, Android, and Networking</strong>. 
+                Certified by <strong>Juniper Networks</strong> and trained by <strong>Google Developers</strong>. 
+                I build scalable solutions and love tackling problems in AI/ML.
+            </p>
+            <div class="skills">
+                <span>Python</span>
+                <span>Java</span>
+                <span>JavaScript</span>
+                <span>React</span>
+                <span>Node.js</span>
+                <span>Android</span>
+                <span>Kotlin</span>
+                <span>HTML/CSS</span>
+                <span>SQL</span>
+                <span>MongoDB</span>
+                <span>Junos OS</span>
+                <span>TensorFlow</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications">
+        <div class="container">
+            <h3 class="section-title">Certifications</h3>
+            <div class="grid">
+                <div class="card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Juniper_Networks_logo.svg/1200px-Juniper_Networks_logo.svg.png" alt="Juniper Networks">
+                    <h4>JNCIA-Junos</h4>
+                    <p><strong>Juniper Networks</strong></p>
+                    <p>March 2024</p>
+                    <p>Networking fundamentals and Junos OS</p>
+                </div>
+                <div class="card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1200px-Google_%22G%22_Logo.svg.png" alt="Google">
+                    <h4>Android Developer Intern</h4>
+                    <p><strong>Google Developers</strong></p>
+                    <p>April - June 2024</p>
+                    <p>Built BLE-enabled IoT apps with Kotlin</p>
+                </div>
+                <div class="card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/AICTE_Logo.svg/1200px-AICTE_Logo.svg.png" alt="AICTE">
+                    <h4>AI Training</h4>
+                    <p><strong>AICTE + Skilldzire</strong></p>
+                    <p>2024</p>
+                    <p>Hands-on projects in Machine Learning</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h3 class="section-title">Projects</h3>
+            <div class="grid">
+                <div class="card">
+                    <h4>E-Commerce Website (MERN Stack)</h4>
+                    <p>Full-stack e-commerce platform with React frontend, Node.js/Express backend, and MongoDB database. Implemented JWT authentication and payment gateway integration.</p>
+                    <a href="https://github.com/yourprofile/ecommerce" target="_blank">View on GitHub ↗</a>
+                </div>
+                <div class="card">
+                    <h4>Smart Home Android App</h4>
+                    <p>BLE-enabled IoT controller developed during Google internship. Features real-time device control and status monitoring with 50ms latency.</p>
+                    <a href="https://github.com/yourprofile/smart-home" target="_blank">View on GitHub ↗</a>
+                </div>
+                <div class="card">
+                    <h4>Network Traffic Analyzer</h4>
+                    <p>Python script using Wireshark APIs for packet monitoring and analysis. Provides real-time traffic statistics and anomaly detection.</p>
+                    <a href="https://github.com/yourprofile/network-analyzer" target="_blank">View on GitHub ↗</a>
+                </div>
+                <div class="card">
+                    <h4>AI-Based Chatbot</h4>
+                    <p>Natural Language Processing chatbot built with TensorFlow. Achieves 85% accuracy in user intent recognition.</p>
+                    <a href="https://github.com/yourprofile/ai-chatbot" target="_blank">View on GitHub ↗</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h3 class="section-title">Get In Touch</h3>
+            <p>📧 besthagiridharkumar944@gmail.com</p>
+            <p>📞 +91-9441010611</p>
+            <p>🏠 Kurnool, Andhra Pradesh, India</p>
+            <div class="social">
+                <a href="http://www.linkedin.com/in/bestha-g-73b10925a" target="_blank">LinkedIn</a>
+                <a href="https://github.com/yourprofile" target="_blank">GitHub</a>
+                <a href="E:\New folder\port1.html" target="_blank">Portfolio</a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Giridhar Kumar. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
